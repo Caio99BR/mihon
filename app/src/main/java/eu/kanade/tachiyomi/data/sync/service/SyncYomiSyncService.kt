@@ -103,7 +103,7 @@ class SyncYomiSyncService(
             }
 
             return try {
-                val backup = ProtoBuf.decodeFromByteArray(Backup.serializer(), byteArray)
+                val backup = protoBuf.decodeFromByteArray(Backup.serializer(), byteArray)
                 return Pair(SyncData(backup = backup), newETag)
             } catch (_: SerializationException) {
                 logcat(LogPriority.INFO) {
@@ -146,7 +146,7 @@ class SyncYomiSyncService(
             .writeTimeout(timeout, TimeUnit.SECONDS)
             .build()
 
-        val byteArray = ProtoBuf.encodeToByteArray(Backup.serializer(), backup)
+        val byteArray = protoBuf.encodeToByteArray(Backup.serializer(), backup)
         if (byteArray.isEmpty()) {
             throw IllegalStateException(context.stringResource(MR.strings.empty_backup_error))
         }
