@@ -40,7 +40,7 @@ fun NavigationBar(
             modifier = Modifier
                 .fillMaxWidth()
                 .windowInsetsPadding(windowInsets)
-                .height(80.dp)
+                .height(70.dp)
                 .selectableGroup(),
             content = content,
         )
