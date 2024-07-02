@@ -16,6 +16,7 @@ import eu.kanade.tachiyomi.util.storage.DiskUtil.NOMEDIA_FILE
 import eu.kanade.tachiyomi.util.storage.saveTo
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
@@ -67,6 +68,7 @@ import java.util.Locale
  *
  * Its queue contains the list of chapters to download.
  */
+@DelicateCoroutinesApi
 class Downloader(
     private val context: Context,
     private val provider: DownloadProvider,
@@ -111,6 +113,7 @@ class Downloader(
     var isPaused: Boolean = false
 
     init {
+        @Suppress("OPT_IN_USAGE")
         launchNow {
             val chapters = async { store.restore() }
             addAllToQueue(chapters.await())

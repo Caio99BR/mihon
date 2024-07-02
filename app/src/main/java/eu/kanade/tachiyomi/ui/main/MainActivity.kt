@@ -77,6 +77,7 @@ import eu.kanade.tachiyomi.util.system.dpToPx
 import eu.kanade.tachiyomi.util.system.isNavigationBarNeedsScrim
 import eu.kanade.tachiyomi.util.system.openInBrowser
 import eu.kanade.tachiyomi.util.view.setComposeContent
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.collectLatest
@@ -99,6 +100,7 @@ import tachiyomi.presentation.core.util.collectAsState
 import uy.kohesive.injekt.injectLazy
 import androidx.compose.ui.graphics.Color.Companion as ComposeColor
 
+@DelicateCoroutinesApi
 class MainActivity : BaseActivity() {
 
     private val libraryPreferences: LibraryPreferences by injectLazy()
@@ -142,6 +144,7 @@ class MainActivity : BaseActivity() {
             val indexing by downloadCache.isInitializing.collectAsState()
 
             // Set status bar color considering the top app state banner
+            @Suppress("DEPRECATION")
             val systemUiController = rememberSystemUiController()
             val isSystemInDarkTheme = isSystemInDarkTheme()
             val statusBarBackgroundColor = when {

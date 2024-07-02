@@ -8,6 +8,7 @@ import eu.kanade.tachiyomi.ui.reader.model.ReaderChapter
 import eu.kanade.tachiyomi.ui.reader.model.ReaderPage
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
@@ -26,6 +27,7 @@ import kotlin.math.min
 /**
  * Loader used to load chapters from an online source.
  */
+@DelicateCoroutinesApi
 internal class HttpPageLoader(
     private val chapter: ReaderChapter,
     private val source: HttpSource,
