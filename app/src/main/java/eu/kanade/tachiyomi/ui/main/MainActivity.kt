@@ -395,7 +395,6 @@ class MainActivity : BaseActivity() {
                 navigator.popUntilRoot()
                 HomeScreen.Tab.Library(idToOpen)
             }
-            Constants.SHORTCUT_UPDATES -> HomeScreen.Tab.Updates
             Constants.SHORTCUT_HISTORY -> HomeScreen.Tab.History
             Constants.SHORTCUT_SOURCES -> HomeScreen.Tab.Browse(false)
             Constants.SHORTCUT_EXTENSIONS -> HomeScreen.Tab.Browse(true)
