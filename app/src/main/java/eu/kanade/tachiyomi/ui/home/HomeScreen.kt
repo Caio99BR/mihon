@@ -120,7 +120,10 @@ object HomeScreen : Screen() {
                         AnimatedContent(
                             targetState = tabNavigator.current,
                             transitionSpec = {
-                                materialFadeThroughIn(initialScale = 1f, durationMillis = TAB_FADE_DURATION) togetherWith
+                                materialFadeThroughIn(
+                                    initialScale = 1f,
+                                    durationMillis = TAB_FADE_DURATION,
+                                ) togetherWith
                                     materialFadeThroughOut(durationMillis = TAB_FADE_DURATION)
                             },
                             label = "tabContent",
